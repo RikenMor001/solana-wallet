@@ -2,7 +2,9 @@
 const express = require("express");
 const app = express();
 const { userModel } = require("./model.js");
+const { jwt } = require("jsonwebtoken");
 const { Keypair } = require("@solana/web3.js");
+const JWT_SECRET = "123456"
 app.use(express.json())
 app.use(cors()) 
 
@@ -32,8 +34,11 @@ app.post("api/v1/signin", (req, res) => {
     })
 
     if (existingUser){
-        res.status(403).json({
-            error: "User already exists"
+        const token = jwt.sign({
+            _id: existingUser
+        }, JWT_SECRET);
+        res.json({
+            token
         })
     }
 })
