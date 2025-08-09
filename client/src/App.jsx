@@ -6,8 +6,8 @@ function App() {
 
   function SendSol(){
     const ix = SystemProgram.transfer({
-      fromPubkey: PublicKey("5wQRZdKExgNbNVtXRy2kEDGprDv3bAPp4qHvfChr553p"),
-      toPubkey: PublicKey("6kCyq58u3w8Kami5dFpjyFWqD4stWbPiKCLGvY5g277B"),
+      fromPubkey: new PublicKey("5wQRZdKExgNbNVtXRy2kEDGprDv3bAPp4qHvfChr553p"),
+      toPubkey: new PublicKey("6kCyq58u3w8Kami5dFpjyFWqD4stWbPiKCLGvY5g277B"),
       lamports: 0.001 * LAMPORTS_PER_SOL
     });
     const tx = new Transaction().add(ix);
