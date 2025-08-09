@@ -5,11 +5,12 @@ function App() {
 
   function SendSol(){
     const ix = SystemProgram.transfer({
-      fromPubkey: PublicKey,
-      toPubkey: PublicKey,
+      fromPubkey: PublicKey("5wQRZdKExgNbNVtXRy2kEDGprDv3bAPp4qHvfChrdZse"),
+      toPubkey: PublicKey("6kCyq58u3w8Kami5dFpjyFWqD4stWbPiKCLGvY5g2asB"),
       lamports: 0.001 * LAMPORTS_PER_SOL
     });
-    const transaction = new Transaction();
+    const tx = new Transaction().add(ix);
+    const serialized = tx.serialize(); 
   }
 
   return <div>
