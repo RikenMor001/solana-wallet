@@ -1,6 +1,7 @@
 
 const express = require("express");
 const app = express();
+const port = 3000;
 const { userModel } = require("./model.js");
 const { jwt } = require("jsonwebtoken");
 const { Keypair } = require("@solana/web3.js");
@@ -43,4 +44,4 @@ app.post("api/v1/signin", (req, res) => {
     }
 })
 
-const port = 3000;
+app.listen(port)
