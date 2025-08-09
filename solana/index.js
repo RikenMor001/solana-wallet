@@ -25,11 +25,11 @@ app.post("api/v1/signup", async (req, res) => {
     })
 })
 
-app.post("api/v1/signin", (req, res) => {
+app.post("api/v1/signin", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     
-    const existingUser = userModel.findFirst({
+    const existingUser = await userModel.findFirst({
         username: username,
         password: password
     })
@@ -44,4 +44,7 @@ app.post("api/v1/signin", (req, res) => {
     }
 })
 
+app.post("api/v1/txn/sign", (req, res) => {
+
+})
 app.listen(port)
